@@ -3,7 +3,7 @@ var beers = document.getElementsByClassName("beer-item");
 
 console.log(beers)
 
-restart(beers)
+toFirst(beers)
 
 wrap.addEventListener("mouseenter", function( event ) {
 
@@ -20,21 +20,31 @@ wrap.addEventListener("mouseenter", function( event ) {
 });
 
 function slideBeer(beers, last) {
+    // premiere biere
     if (last == 0) {
-        beerToCenter(beers[0])
-        beerToLeft(beers[12])
+        toFirst (beers)
     }
-    else if (last == beers.length) {
-        beerToCenter(beers[12])
-        beerToLeft(beers[1])
-        restart(beers);
-    }
-    else {
+    // toutes les bières jusque 12
+    else if (last < beers.length -1) {
         beerToCenter(beers[last])
         beerToLeft(beers[last-1])
     }
+    // bière 13
+    else if (last < beers.length) {
+        beerToCenter(beers[beers.length-1])
+        beerToLeft(beers[0])
+    }
+    // on repart à zéro
+    else {
+        toFirst(beers)
+    }
 
     return ordre;
+}
+function toFirst(beers) {
+    restart(beers);
+    beerToCenter(beers[0])
+    beerToLeft(beers[12])
 }
 
 function restart(beers) {
