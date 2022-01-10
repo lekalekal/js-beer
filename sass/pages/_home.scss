@@ -1,0 +1,30 @@
+.wrapper{
+    background: url("/img/bg.jpg") center / cover;
+    width: 900px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    img{
+        height: 600px;
+        position: absolute;
+    }
+    .beer-left{
+        transform: translateX(-100vw);
+        transition: 0.5s all ease-in-out;
+    }
+    .beer-center{
+        transform: translateX(0%);
+        transition: 0.5s all ease-in-out;
+    }
+    .beer-right{
+        transform: translateX(100vw);
+        transition: 0.5s all ease-in-out;
+    }
+    
+}
+
+

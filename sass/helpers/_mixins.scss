@@ -1,0 +1,5 @@
+// mixin de transitions
+
+@mixin transition-eclair($scope: all, $duree: .3s, $delai: 0s) {
+    transition: $scope $duree ease-in-out $delai;
+}
