@@ -25,6 +25,7 @@ wrap.addEventListener("mouseenter", function( event ) {
     // if (ordre == beers.length-1) {
     //     ordre=1;
     // }
+    
 });
 
 function slideBeer(beers, ordre) {
