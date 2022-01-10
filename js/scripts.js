@@ -3,22 +3,13 @@ var beers = document.getElementsByClassName("beer-item");
 
 console.log(beers)
 
-for (var beer = 0 ; beer < beers.length ; beer++) {
-    beerToRight(beers[beer]);
-}
-
-ordre = 1;
+restart(beers)
 
 wrap.addEventListener("mouseenter", function( event ) {
 
     slideBeer(beers, ordre)
 
     ordre++;
-
-    if (slideBeer(beers, ordre) == beers.length) {
-        slideBeer(beers, 0)
-        ordre = 0
-    }
 
     console.log(slideBeer(beers, ordre));
 
@@ -28,22 +19,29 @@ wrap.addEventListener("mouseenter", function( event ) {
     
 });
 
-function slideBeer(beers, ordre) {
-    if (ordre == 0) {
+function slideBeer(beers, last) {
+    if (last == 0) {
         beerToCenter(beers[0])
         beerToLeft(beers[12])
     }
-    else if (ordre == beers.length -1) {
+    else if (last == beers.length) {
         beerToCenter(beers[12])
-        beerToLeft(beers[0])
+        beerToLeft(beers[1])
+        restart(beers);
     }
     else {
-        beerToCenter(beers[ordre])
-        beerToLeft(beers[ordre-1])
+        beerToCenter(beers[last])
+        beerToLeft(beers[last-1])
     }
-    
 
     return ordre;
+}
+
+function restart(beers) {
+    for (var beer = 0 ; beer < beers.length ; beer++) {
+        beerToRight(beers[beer]);
+    }
+    ordre = 0;
 }
 
 function beerToRight(beer) {
